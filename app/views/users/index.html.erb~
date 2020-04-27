@@ -1,0 +1,28 @@
+<%= render 'users/user_info' %>
+
+<div class="col-xs-9">
+  <h2>Users</h2>
+  <table class="table">
+    <thead>
+      <th>image</th>
+      <th>name</th>
+      <th></th>
+    </thead>
+    <tbody>
+
+      <% if @users.present? %>
+      <% @users.each do |user| %>
+
+      <tr>
+	
+        <td><a href="">
+	    <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %></a>
+	</td>
+        <td><%= user.name %></td>
+        <td><a class="btn-sm btn-success" href=<%= user_path(user.id) %>>Show</a></td>
+	<% end %>
+	<% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>
